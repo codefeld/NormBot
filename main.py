@@ -2,6 +2,7 @@ import discord
 from dotenv import load_dotenv
 from os import getenv
 import random
+from hangman import play_hangman
 
 print("Booting up")
 
@@ -29,6 +30,8 @@ class MyClient(discord.Client):
 async def parse_message(message):
 	if "favorite color" in message.content.lower():
 		await message.reply(favorite_color(), mention_author=True)
+	elif "hangman" in message.content.lower():
+		await play_hangman(message)
 	else:
 		await message.reply("Is this a trick question?", mention_author=True)
 
