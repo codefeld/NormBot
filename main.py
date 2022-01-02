@@ -30,6 +30,12 @@ class MyClient(discord.Client):
 async def parse_message(message):
 	if "favorite color" in message.content.lower():
 		await message.reply(favorite_color(), mention_author=True)
+	elif "favourite colour" in message.content.lower():
+		await message.reply(favorite_color(), mention_author=True)
+	elif "favorite colour" in message.content.lower():
+		await message.reply(favorite_color(), mention_author=True)
+	elif "favourite color" in message.content.lower():
+		await message.reply(favorite_color(), mention_author=True)
 	elif "hangman" in message.content.lower():
 		await play_hangman(message)
 	else:
