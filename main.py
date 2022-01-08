@@ -2,7 +2,7 @@ import discord
 from dotenv import load_dotenv
 from os import getenv
 import random
-from hangman import play_hangman
+from hangman import guess_letter, play_hangman
 
 print("Booting up")
 
@@ -36,6 +36,9 @@ async def parse_message(message):
 		await message.reply(favorite_color(), mention_author=True)
 	elif "favourite color" in message.content.lower():
 		await message.reply(favorite_color(), mention_author=True)
+	elif len(message.content.split(" ")[1]) == 1:
+		#todo: also check if game is started
+		await guess_letter(message)
 	elif "hangman" in message.content.lower():
 		await play_hangman(message)
 	else:
